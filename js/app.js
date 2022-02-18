@@ -20,32 +20,7 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
    rent.value = '';
    clothes.value = '';
 
-   /* -------Total Balance------ */
-   const previousBalance = getValue('total-balance');
-   const newBalance = incomeValue - newTotalExpense;
-   const updateBalanceTotal = parseFloat(previousBalance.innerText) + newBalance;
-   previousBalance.innerText = updateBalanceTotal;
-
-   /* -------Saving Handler------ */
    
-   getValue('save-btn').addEventListener('click', function () {
-
-   /* -------Saving Amount------ */
-      const saveField = getValue('save-field');
-      const savingAmount = incomeValue * parseFloat(saveField.value) / 100;
-      
-      const previousSavingAmount = getValue('saving-amount');
-      const updateSavingAmount = parseFloat(previousSavingAmount.innerText) + savingAmount;
-
-      previousSavingAmount.innerText = updateSavingAmount;
-      saveField.value = '';
-
-      /* -------Remaining Balance------ */
-      const remainingField = getValue('remaining-balance');
-      remainingField.innerText = updateBalanceTotal - updateSavingAmount;
-
-
-   })
 
 
 
