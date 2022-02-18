@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker 1.0</title>
+    <!-- Favicon  -->
+    <link rel="shortcut icon" href="images/expense-tracker-favicon.png" type="image/x-icon">
+    <!-- Bootstrap Css  -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Vanilla Css  -->
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+<body class="py-5">
+
+    <!-- Header Section  -->
+    
+    <header>
+        <div class="container text-center">
+            <img src="images/expense-tracker-logo.svg" alt="" class="w-100 logo">
+        </div>
+    </header>
+
+    <!-- Main Section  -->
+
+    <main>
+        <div class="container">
+            <div class="row pt-5 g5">
+
+                <!-- Left Banner Image  -->
+
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                    <div class="image-banner">
+                        <img src="images/bg-money-calculation.jpeg" alt="money-calculation" class="w-100">
+                    </div>
+                </div>
+
+                <!-- Money Calculator  -->
+
+                <div class="col-12 col-md-6">
+                    <div class="calculation h-100 p-4 p-md-5">
+
+                        <!-- Income Section -->
+
+                        <h4 class="text-center mb-3">Income</h4>
+                        <div class="row g-0 align-items-center">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="w-25">
+                                            <label for="income-field" class="col-form-label">Income:</label>
+                                        </th>
+                                        <td>
+                                            <div class="input-group shadow-sm">
+                                                <input type="text" class="form-control" id="income-field" placeholder="Your Income">
+                                                <span class="input-group-text bg-light">tk.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- Income Error Message  -->
+                            <p id="income-error" class="text-danger text-center mt-2"></p>
+                        </div>
+
+                        <!-- Expenses Section  -->
+
+                        <h4 class="text-center mt-4 mb-3">Expenses</h4>
+                        <div class="row g-0 align-items-center justify-content-center">
+                            <table>
+                                <tbody>
+                                    <!-- Food -->
+                                    <tr>
+                                        <th scope="row" class="w-25">
+                                            <label for="food-field" class="col-form-label">Food:</label>
+                                        </th>
+                                        <td>
+                                            <div class="input-group shadow-sm">
+                                                <input type="text" class="form-control" id="food-field" placeholder="Your food expense">
+                                                <span class="input-group-text bg-light">tk.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Rent  -->
+                                    <tr>
+                                        <th scope="row" class="w-25">
+                                            <label for="rent-field" class="col-form-label">Rent:</label>
+                                        </th>
+                                        <td>
+                                            <div class="input-group shadow-sm my-2">
+                                                <input type="text" class="form-control" id="rent-field" placeholder="Your rent expense">
+                                                <span class="input-group-text bg-light">tk.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Clothes  -->
+                                    <tr>
+                                        <th scope="row" class="w-25">
+                                            <label for="clothes-field" class="col-form-label">Clothes:</label>
+                                        </th>
+                                        <td>
+                                            <div class="input-group shadow-sm">
+                                                <input type="text" class="form-control" id="clothes-field" placeholder="Your clothes expense">
+                                                <span class="input-group-text bg-light">tk.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- Expense Error Message  -->
+                            <p id="expense-error" class="text-danger text-center mt-2"></p>
+
+                            <button type="button" class="btn btn-primary w-50 mt-3 fs-5" id="calculate-btn">Calculate</button>
+                            <div class="row my-4 g-1">
+                                <div class="col">
+                                    <!-- Total Expenses  -->
+                                    <div class="bg-primary bg-gradient p-3 rounded bg-opacity-25 shadow-sm">
+                                        <h5 class="text-center">Total<br>Expenses</h5>
+                                    <h3 class="text-center mb-0"><span id="total-expenses">0</span> tk</h3>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <!-- Total balance  -->
+                                    <div class="bg-info bg-gradient p-3 rounded bg-opacity-25 shadow-sm">
+                                        <h5 class="text-center">Total<br>Balance</h5>
+                                        <h3 class="text-center mb-0"><span id="total-balance">0</span> tk</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Save Section  -->
+
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <label for="save-field" class="col-form-label">Save:</label>
+                                        </th>
+                                        <td class="w-50">
+                                            <div class="input-group shadow-sm pe-1">
+                                                <input type="text" class="form-control" id="save-field">
+                                                <span class="input-group-text bg-light">%</span>
+                                            </div>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary w-100" id="save-btn">Save</button>
+                                            </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- Saving Error Message  -->
+                            <p id="save-error" class="text-danger text-center mt-2"></p>
+                            
+                            <!-- Saving Amount And Remaining Balance  -->
+
+                            <div class="row mt-4 g-1">
+                                <div class="col">
+                                    <div class="bg-success bg-gradient p-3 rounded bg-opacity-25 shadow-sm">
+                                        <h5 class="text-center">Saving<br>Amount</h5>
+                                        <h3 class="text-center mb-0"><span id="saving-amount">0</span> tk</h3>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="bg-info bg-gradient p-3 rounded bg-opacity-50 shadow-sm">
+                                        <h5 class="text-center">Remaining<br>Balance</h5>
+                                        <h3 class="text-center mb-0"><span id="remaining-balance">0</span> tk</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<!-- Bootstrap Script  -->
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<!-- Vanilla Script  -->
+<script src="js/app.js"></script>
+</body>
+</html>
