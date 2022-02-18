@@ -20,6 +20,12 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
    rent.value = '';
    clothes.value = '';
 
+   /* -------Total Balance------ */
+   const previousBalance = getValue('total-balance');
+   const newBalance = incomeValue - newTotalExpense;
+   const updateBalanceTotal = parseFloat(previousBalance.innerText) + newBalance;
+   previousBalance.innerText = updateBalanceTotal;
+
    
 
 
